@@ -10,13 +10,16 @@ export default class SearchBar extends Component {
   }
 
   onInputChange(event) {
-    console.log(event.target.value)
     this.setState({ term : event.target.value})
+  }
+
+  onSubmitForm(event) {
+    event.preventDefault()
   }
 
   render() {
     return (
-      <form className='input-group'>
+      <form onSubmit={this.onSubmitForm} className='input-group'>
         <input
           type='text'
           placeholder='Get a forecast in your cities'
